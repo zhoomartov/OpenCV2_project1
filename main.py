@@ -15,6 +15,8 @@ cap = cv2.VideoCapture('airplane_video1.mp4')
 
 video = None
 
+classes = ['airplane', 'car', 'dog', 'cat']
+
 if not cap.isOpened():
     print('Камера не найдено')
     exit()
@@ -124,13 +126,14 @@ while True:
         print('Frame not found')
         break
 
-    result = model(frame, conf=0.3, classes=[4,15,16,2])
+    result = model(frame, conf=0.3)
     boxes = result[0].boxes
     person_count = 0
 
     for i in boxes:
         cls = int(i.cls[0])
         label = model.names[cls]
+        
 
         conf = round(float(i.conf[0]) * 100)
         x, y, w, h = map(int, i.xyxy[0])
