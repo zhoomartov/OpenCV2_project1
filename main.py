@@ -133,7 +133,8 @@ while True:
     for i in boxes:
         cls = int(i.cls[0])
         label = model.names[cls]
-        
+        if label not in classes:
+            continue
 
         conf = round(float(i.conf[0]) * 100)
         x, y, w, h = map(int, i.xyxy[0])
