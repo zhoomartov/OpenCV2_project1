@@ -119,7 +119,7 @@ while True:
 
     ret, frame = cap.read()
 
-    ii_8 = 'II8'
+    ii_8 = 'AI8'
     vremya = datetime.datetime.now().strftime('%d-%m-%y %H-%M-%S')
 
     if not ret:
