@@ -128,7 +128,7 @@ while True:
 
     result = model(frame, conf=0.3)
     boxes = result[0].boxes
-    person_count = 0
+   
 
     for i in boxes:
         cls = int(i.cls[0])
